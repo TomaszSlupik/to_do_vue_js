@@ -4,10 +4,14 @@
     <button @click="clickMe">Kliknij</button>
     <h1>{{ msg }}</h1>  
 
-    <input type="text" placeholder="zadanie"
+    <h2>Zadanie, które zostanie dodane:</h2>
+    <h3>Zadanie => {{ newItem }}</h3>
+    <input 
+    class="todo"
+    type="text" placeholder="zadanie"
     v-model="newItem"
     >
-    {{ newItem }}
+    
     <button
     @click="addItems"
     >Dodaj</button>
@@ -37,12 +41,13 @@ export default {
         id: Math.random(),
         title: this.newItem
       })
+      this.newItem = ""
     }
   },
   // Moja lista zakupów
   data () {
     return {
-      newItem: 'default',
+      newItem: '',
       items: [
           {id: 0, title: 'zrobić zakupy'},
           {id: 1, title: 'pójśc do sklepu'},
@@ -52,4 +57,18 @@ export default {
   
 }
 </script>
+
+<style>
+button {
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.todo {
+  margin-right: 0.3em;
+}
+
+</style>
 
